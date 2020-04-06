@@ -2,6 +2,46 @@
 <html>
 <head>
   <% include ../partials/header.ejs %>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0">
+   <script type='text/javascript'>
+       function onBodyLoaded() {
+           /**
+             * Toggles the inert attribute on background content for the page.
+             * The inert attribute just needs to be set on parent level DOM
+             * nodes. Inert will set the DOM node aria-hidden attribute and
+             * and set tab-index="-1" on all children so that screen readers
+             * can't access the content.
+             */
+           function toggleInert(disabled) {
+               let bodyElem = document.getElementById("body-content");
+               if(bodyElem) {
+                   bodyElem.inert = disabled;
+               }
+           }
+
+           // Add hooks to toggle inert on our page when Embedded Chat
+           // changes state.
+           function addA11yHooks() {
+               embedded_svc.addEventHandler('afterMaximize', function(data) {
+                   toggleInert(true);
+               });
+               embedded_svc.addEventHandler('afterDestroy', function(data) {
+                   toggleInert(false);
+               });
+               embedded_svc.addEventHandler('afterMinimize', function(data) {
+                   toggleInert(false);
+               });
+           }
+
+           // Early out for desktop.
+           if(embedded_svc.isDesktop()) {
+               return;
+           }
+
+           // Add hooks for mobile.
+           addA11yHooks();
+       }
+   </script>
 </head>
 
 <body>
@@ -21,68 +61,52 @@
 </div>
 
 <div>
-  <style type='text/css'>
-    .embeddedServiceHelpButton .helpButton .uiButton {
-      background-color: #005290;
-      font-family: "Arial", sans-serif;
-    }
-    .embeddedServiceHelpButton .helpButton .uiButton:focus {
-      outline: 1px solid #005290;
-    }
-  </style>
-  
-  <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
-  <script type='text/javascript'>
-    var initESW = function(gslbBaseURL) {
-      embedded_svc.settings.displayHelpButton = true; //Or false
-      embedded_svc.settings.language = ''; //For example, enter 'en' or 'en-US'
-  
-      //embedded_svc.settings.defaultMinimizedText = '...'; //(Defaults to Chat with an Expert)
-      //embedded_svc.settings.disabledMinimizedText = '...'; //(Defaults to Agent Offline)
-  
-      //embedded_svc.settings.loadingText = ''; //(Defaults to Loading)
-      //embedded_svc.settings.storageDomain = 'yourdomain.com'; //(Sets the domain for your deployment so that visitors can navigate subdomains during a chat session)
-  
-      // Settings for Chat
-      //embedded_svc.settings.directToButtonRouting = function(prechatFormData) {
-        // Dynamically changes the button ID based on what the visitor enters in the pre-chat form.
-        // Returns a valid button ID.
-      //};
-      //embedded_svc.settings.prepopulatedPrechatFields = {}; //Sets the auto-population of pre-chat form fields
-      //embedded_svc.settings.fallbackRouting = []; //An array of button IDs, user IDs, or userId_buttonId
-      //embedded_svc.settings.offlineSupportMinimizedText = '...'; //(Defaults to Contact Us)
-  
-      embedded_svc.settings.enabledFeatures = ['LiveAgent'];
-      embedded_svc.settings.entryFeature = 'LiveAgent';
-  
-      embedded_svc.init(
-        'https://resourceful-wolf-oi34a5-dev-ed.my.salesforce.com',
-        'https://c0mmun1ty11-developer-edition.na111.force.com/',
-        gslbBaseURL,
-        '00D3h0000018bpL',
-        'Chat_Agents2',
-        {
-          baseLiveAgentContentURL: 'https://c.la4-c2-ia2.salesforceliveagent.com/content',
-          deploymentId: '5723h000000Y0ti',
-          buttonId: '5733h000000Y63x',
-          baseLiveAgentURL: 'https://d.la4-c2-ia2.salesforceliveagent.com/chat',
-          eswLiveAgentDevName: 'Chat_Agents2',
-          isOfflineSupportEnabled: false
+  <div id="body-content">
+    <h1>Welcome to the best website!</h1>
+
+    <style type='text/css'>
+        .embeddedServiceHelpButton .helpButton .uiButton {
+            background-color: #A70BA5;
+            font-family: "Comic Sans MS", sans-serif;
         }
-      );
+        .embeddedServiceHelpButton .helpButton .uiButton:focus {
+            outline: 1px solid #A70BA5;
+        }
+        .previews img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+        .chat-content a {
+            color: #fff;
+        }
+    </style>
+</div>
+
+<script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
+<script type='text/javascript'>
+    var initESW = function (gslbBaseURL) {
+        embedded_svc.settings.displayHelpButton = true; //Or false
+        embedded_svc.settings.language = ''; //For example, enter 'en' or 'en-US'
+        embedded_svc.settings.enabledFeatures = ['LiveAgent'];
+        embedded_svc.settings.entryFeature = 'LiveAgent';
+
+        embedded_svc.init(
+            // Add params for your org
+        );
     };
-  
+
     if (!window.embedded_svc) {
-      var s = document.createElement('script');
-      s.setAttribute('src', 'https://resourceful-wolf-oi34a5-dev-ed.my.salesforce.com/embeddedservice/5.0/esw.min.js');
-      s.onload = function() {
-        initESW(null);
-      };
-      document.body.appendChild(s);
+        var s = document.createElement('script');
+        // Update the core URL below
+        s.setAttribute('src', 'https://<yourCoreURL>/embeddedservice/5.0/esw.min.js');
+        s.onload = function () {
+            initESW(null);
+        };
+        document.body.appendChild(s);
     } else {
-      initESW('https://service.force.com');
+        initESW('https://service.force.com');
     }
-  </script>
+</script>
 </div>
 
 </body>
