@@ -16,7 +16,7 @@
     <h1>Einstein Bot for testing on a Web App</h1>
     <p>This is a sample Node application deployed to Heroku.</p>
     <a type="button" class="btn btn-lg btn-default" href="https://devcenter.heroku.com/articles/getting-started-with-nodejs"><span class="glyphicon glyphicon-flash"></span> Getting Started on Heroku with Node.js</a>
-    <a type="button" class="btn btn-lg btn-primary" href="https://github.com/heroku/node-js-getting-started"><span class="glyphicon glyphicon-download"></span> Source on GitHub</a>
+    <a type="button" class="btn btn-lg btn-primary" href="https://github.com/heroku/node-js-getting-started"><span class="glyphicon glyphicon-download"></span> GitHub</a>
   </div>
 </div>
 
@@ -27,6 +27,68 @@
     <div class="col-md-6">
     </div>
   </div> <!-- row -->
+  <style type='text/css'>
+    .embeddedServiceHelpButton .helpButton .uiButton {
+      background-color: #005290;
+      font-family: "Arial", sans-serif;
+    }
+    .embeddedServiceHelpButton .helpButton .uiButton:focus {
+      outline: 1px solid #005290;
+    }
+  </style>
+  
+  <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
+  <script type='text/javascript'>
+    var initESW = function(gslbBaseURL) {
+      embedded_svc.settings.displayHelpButton = true; //Or false
+      embedded_svc.settings.language = ''; //For example, enter 'en' or 'en-US'
+  
+      //embedded_svc.settings.defaultMinimizedText = '...'; //(Defaults to Chat with an Expert)
+      //embedded_svc.settings.disabledMinimizedText = '...'; //(Defaults to Agent Offline)
+  
+      //embedded_svc.settings.loadingText = ''; //(Defaults to Loading)
+      //embedded_svc.settings.storageDomain = 'yourdomain.com'; //(Sets the domain for your deployment so that visitors can navigate subdomains during a chat session)
+  
+      // Settings for Chat
+      //embedded_svc.settings.directToButtonRouting = function(prechatFormData) {
+        // Dynamically changes the button ID based on what the visitor enters in the pre-chat form.
+        // Returns a valid button ID.
+      //};
+      //embedded_svc.settings.prepopulatedPrechatFields = {}; //Sets the auto-population of pre-chat form fields
+      //embedded_svc.settings.fallbackRouting = []; //An array of button IDs, user IDs, or userId_buttonId
+      //embedded_svc.settings.offlineSupportMinimizedText = '...'; //(Defaults to Contact Us)
+  
+      embedded_svc.settings.enabledFeatures = ['LiveAgent'];
+      embedded_svc.settings.entryFeature = 'LiveAgent';
+  
+      embedded_svc.init(
+        'https://resourceful-wolf-oi34a5-dev-ed.my.salesforce.com',
+        'https://c0mmun1ty11-developer-edition.na111.force.com/',
+        gslbBaseURL,
+        '00D3h0000018bpL',
+        'Chat_Agents2',
+        {
+          baseLiveAgentContentURL: 'https://c.la4-c2-ia2.salesforceliveagent.com/content',
+          deploymentId: '5723h000000Y0ti',
+          buttonId: '5733h000000Y63x',
+          baseLiveAgentURL: 'https://d.la4-c2-ia2.salesforceliveagent.com/chat',
+          eswLiveAgentDevName: 'Chat_Agents2',
+          isOfflineSupportEnabled: false
+        }
+      );
+    };
+  
+    if (!window.embedded_svc) {
+      var s = document.createElement('script');
+      s.setAttribute('src', 'https://resourceful-wolf-oi34a5-dev-ed.my.salesforce.com/embeddedservice/5.0/esw.min.js');
+      s.onload = function() {
+        initESW(null);
+      };
+      document.body.appendChild(s);
+    } else {
+      initESW('https://service.force.com');
+    }
+  </script>
 </div>
 
 
