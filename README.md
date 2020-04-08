@@ -48,3 +48,13 @@ For more information about using Node.js on Heroku, see these Dev Center article
     * cd node-js-getting-started - change directory into the local source code repository
     * heroku git:remote -a <your-app-name> - associate the Heroku app with the repository
     * You'll now be set up to run the app locally, or deploy changes to Heroku
+
+## Chat Deployments Settings
+* Chat Deployment Name
+* Developer Name
+* Chat Window Title - 
+* Allow Visitors to Save Transcripts
+* Allow Acces to Pre-Chat API - 
+* Permitted Domains - To limit the domains that can host this deployment.
+* Enable Custome Timeouts - Customize the default idle connection timeout durations.
+* 
