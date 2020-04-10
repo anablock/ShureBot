@@ -134,7 +134,6 @@
 				isOfflineSupportEnabled: false
 			}
 		);
-		console.log(init);
 	};
 ​
 	if (!window.embedded_svc) {
@@ -147,6 +146,7 @@
 	} else {
 		initESW('https://service.force.com');
 	}
+	console.log(window.embedded_svc);
 </script>
 </body>
 </html>
