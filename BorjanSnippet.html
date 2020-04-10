@@ -1,0 +1,127 @@
+<!--Embedded Service Snippet-->
+<style type='text/css'>
+	.embeddedServiceHelpButton .helpButton .uiButton {
+		background-color: #B2ff33;
+		font-family: "Arial", sans-serif;
+		color: #222222;
+	}
+	.embeddedServiceHelpButton .helpButton .uiButton:focus {
+		outline: 1px solid #B2ff33;
+	}
+	.embeddedServiceSidebarMinimizedDefaultUI.helpButton {
+		background-color: #B2ff33;
+		border-color: rgb(120, 121, 120);
+	}
+	.embeddedServiceSidebarMinimizedDefaultUI.minimizedContainer:hover {
+		background-color: #B2ff33;
+		border-color: #B2ff33;
+	}
+	.embeddedServiceSidebarMinimizedDefaultUI.minimizedContainer:focus {
+		background-color: #B2ff33;
+		border-color: #222222;
+	}
+	.embeddedServiceSidebarMinimizedDefaultUI.minimizedContainer:focus {
+		text-decoration: none;
+	}
+	.embeddedServiceSidebarMinimizedDefaultUI .minimizedText {
+		color: #222222;
+	}
+	.embeddedServiceSidebarMinimizedDefaultUI .embeddedServiceIcon svg {
+		fill: #222222;
+	}
+​
+	.cPreChatForm .fieldsList label {
+		font-size: 0.8em;
+	}
+	.cPreChatForm .fieldsList input, .cPreChatForm .fieldsList select {
+		height: calc(3rem + 2px);
+	}
+​
+	.cPreChatForm .uiButton--default {
+		font-size: 1.2em;
+	}
+​
+	.embeddedServiceSidebarButton.uiButton--inverse, 
+	.embeddedServiceSidebarButton.uiButton--inverse:hover,
+	.embeddedServiceSidebarButton.uiButton--inverse:focus, 
+	.embeddedServiceSidebarButton.uiButton--inverse:not(:disabled):focus, 
+	.embeddedServiceSidebarButton.uiButton--inverse:not(:disabled):hover,
+	.embeddedServiceSidebarButton:not(:disabled):focus,
+	.embeddedServiceSidebarButton:not(:disabled):hover {
+		background-color: #B2ff33;
+		text-decoration: none;
+		box-shadow: none;
+		border: 1px solid #222222;
+	}
+	
+​
+	.embeddedServiceSidebarButton.uiButton--inverse .label {
+		color: #222222;
+	}
+​
+	.embeddedServiceSidebarButton.dialogButton, 
+	.embeddedServiceSidebarButton.dialogButton:hover
+	.embeddedServiceSidebarButton.dialogButton:focus {
+		background-color: #B2ff33;
+		color: #222222;
+		border: none;
+	}
+	.embeddedServiceSidebarButton .label, 
+	.embeddedServiceSidebarButton:disabled .label {
+		color: #222222;
+	}
+</style>
+​
+<script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
+<script type='text/javascript'>
+	var initESW = function(gslbBaseURL) {
+		embedded_svc.settings.displayHelpButton = true; //Or false
+		embedded_svc.settings.language = ''; //For example, enter 'en' or 'en-US'
+​
+		//embedded_svc.settings.defaultMinimizedText = '...'; //(Defaults to Chat with an Expert)
+		//embedded_svc.settings.disabledMinimizedText = '...'; //(Defaults to Agent Offline)
+​
+		//embedded_svc.settings.loadingText = ''; //(Defaults to Loading)
+		//embedded_svc.settings.storageDomain = 'yourdomain.com'; //(Sets the domain for your deployment so that visitors can navigate subdomains during a chat session)
+​
+		// Settings for Chat
+		//embedded_svc.settings.directToButtonRouting = function(prechatFormData) {
+			// Dynamically changes the button ID based on what the visitor enters in the pre-chat form.
+			// Returns a valid button ID.
+		//};
+		//embedded_svc.settings.prepopulatedPrechatFields = {}; //Sets the auto-population of pre-chat form fields
+		//embedded_svc.settings.fallbackRouting = []; //An array of button IDs, user IDs, or userId_buttonId
+		//embedded_svc.settings.offlineSupportMinimizedText = '...'; //(Defaults to Contact Us)
+​
+		embedded_svc.settings.enabledFeatures = ['LiveAgent'];
+		embedded_svc.settings.entryFeature = 'LiveAgent';
+​
+		embedded_svc.init(
+			'https://shure--Dev1.cs41.my.salesforce.com',
+			'https://dev1-shure-community.cs41.force.com/CSPGateway',
+			gslbBaseURL,
+			'00D55000000D2n7',
+			'U_S_Chat_Support',
+			{
+				baseLiveAgentContentURL: 'https://c.la1-c1cs-ia2.salesforceliveagent.com/content',
+				deploymentId: '5723h000000Y0ti',
+				buttonId: '573550000008P8W',
+				baseLiveAgentURL: 'https://d.la1-c1cs-ia2.salesforceliveagent.com/chat',
+				eswLiveAgentDevName: 'U_S_Chat_Support',
+				isOfflineSupportEnabled: false
+			}
+		);
+	};
+​
+	if (!window.embedded_svc) {
+		var s = document.createElement('script');
+		s.setAttribute('src', 'https://shure--Dev1.cs41.my.salesforce.com/embeddedservice/5.0/esw.min.js');
+		s.onload = function() {
+			initESW(null);
+		};
+		document.body.appendChild(s);
+	} else {
+		initESW('https://service.force.com');
+	}
+	console.log(window.embedded_svc);
+</script>
