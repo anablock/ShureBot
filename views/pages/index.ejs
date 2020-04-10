@@ -21,15 +21,79 @@
   </div>
 </div>
 
+<!--Embedded Service Snippet-->
 <style type='text/css'>
 	.embeddedServiceHelpButton .helpButton .uiButton {
-		background-color: rgb(6, 245, 85);
+		background-color: #B2ff33;
 		font-family: "Arial", sans-serif;
+		color: #222222;
 	}
 	.embeddedServiceHelpButton .helpButton .uiButton:focus {
-		outline: 1px solid rgb(4, 238, 43);
-    }
-    .cPreChatForm .startButtonDisabled {
+		outline: 1px solid #B2ff33;
+	}
+	.embeddedServiceSidebarMinimizedDefaultUI.helpButton {
+		background-color: #B2ff33;
+		border-color: rgb(120, 121, 120);
+	}
+	.embeddedServiceSidebarMinimizedDefaultUI.minimizedContainer:hover {
+		background-color: #B2ff33;
+		border-color: #B2ff33;
+	}
+	.embeddedServiceSidebarMinimizedDefaultUI.minimizedContainer:focus {
+		background-color: #B2ff33;
+		border-color: #222222;
+	}
+	.embeddedServiceSidebarMinimizedDefaultUI.minimizedContainer:focus {
+		text-decoration: none;
+	}
+	.embeddedServiceSidebarMinimizedDefaultUI .minimizedText {
+		color: #222222;
+	}
+	.embeddedServiceSidebarMinimizedDefaultUI .embeddedServiceIcon svg {
+		fill: #222222;
+	}
+	.cPreChatForm .fieldsList label {
+		font-size: 0.8em;
+	}
+	.cPreChatForm .fieldsList input, .cPreChatForm .fieldsList select {
+		height: calc(3rem + 2px);
+	}
+​
+	.cPreChatForm .uiButton--default {
+		font-size: 1.2em;
+	}
+​
+	.embeddedServiceSidebarButton.uiButton--inverse, 
+	.embeddedServiceSidebarButton.uiButton--inverse:hover,
+	.embeddedServiceSidebarButton.uiButton--inverse:focus, 
+	.embeddedServiceSidebarButton.uiButton--inverse:not(:disabled):focus, 
+	.embeddedServiceSidebarButton.uiButton--inverse:not(:disabled):hover,
+	.embeddedServiceSidebarButton:not(:disabled):focus,
+	.embeddedServiceSidebarButton:not(:disabled):hover {
+		background-color: #B2ff33;
+		text-decoration: none;
+		box-shadow: none;
+		border: 1px solid #222222;
+	}
+	
+​
+	.embeddedServiceSidebarButton.uiButton--inverse .label {
+		color: #222222;
+	}
+​
+	.embeddedServiceSidebarButton.dialogButton, 
+	.embeddedServiceSidebarButton.dialogButton:hover
+	.embeddedServiceSidebarButton.dialogButton:focus {
+		background-color: #B2ff33;
+		color: #222222;
+		border: none;
+	}
+	.embeddedServiceSidebarButton .label, 
+	.embeddedServiceSidebarButton:disabled .label {
+		color: #222222;
+	}
+	/* 
+	.cPreChatForm .startButtonDisabled {
         background: #d7d7d9!important;
         color: rgb(2, 241, 82)!important;
     }
@@ -47,13 +111,14 @@
         color: #13ff03;
     }
     .uiButton--default .label {
-        /* white-space: normal; */
+        /* white-space: normal; 
          color: #13ff03; 
     }
     .cPreChatForm .startButton {
         background: black;
         color: #b2ff33;
-    }
+	}
+	*/
 </style>
 
 <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
