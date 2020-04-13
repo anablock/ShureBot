@@ -14,7 +14,7 @@
     <a href="/" class="lang-logo">
       <img src="/lang-logo.png">
     </a>
-    <h1>Shure Web App for testing Einstein Bots</h1>
+    <h1>Web App for testing Einstein Bots</h1>
     <p>This is a sample Node application deployed to Heroku.</p>
     <a type="button" class="btn btn-lg btn-default" href="https://devcenter.heroku.com/articles/getting-started-with-nodejs"><span class="glyphicon glyphicon-flash"></span> Getting Started on Heroku with Node.js</a>
     <a type="button" class="btn btn-lg btn-primary" href=""><span class="glyphicon glyphicon-download"></span> ShureBot repo on GitHub</a>
@@ -33,7 +33,7 @@
 	}
 	.embeddedServiceSidebarMinimizedDefaultUI.helpButton {
 		background-color: #B2ff33;
-		border-color: rgb(120, 121, 120);
+		border-color: #B2ff33;
 	}
 	.embeddedServiceSidebarMinimizedDefaultUI.minimizedContainer:hover {
 		background-color: #B2ff33;
@@ -52,17 +52,18 @@
 	.embeddedServiceSidebarMinimizedDefaultUI .embeddedServiceIcon svg {
 		fill: #222222;
 	}
+
 	.cPreChatForm .fieldsList label {
 		font-size: 0.8em;
 	}
 	.cPreChatForm .fieldsList input, .cPreChatForm .fieldsList select {
 		height: calc(3rem + 2px);
 	}
-​
+
 	.cPreChatForm .uiButton--default {
 		font-size: 1.2em;
 	}
-​
+
 	.embeddedServiceSidebarButton.uiButton--inverse, 
 	.embeddedServiceSidebarButton.uiButton--inverse:hover,
 	.embeddedServiceSidebarButton.uiButton--inverse:focus, 
@@ -76,11 +77,11 @@
 		border: 1px solid #222222;
 	}
 	
-​
+
 	.embeddedServiceSidebarButton.uiButton--inverse .label {
 		color: #222222;
 	}
-​
+
 	.embeddedServiceSidebarButton.dialogButton, 
 	.embeddedServiceSidebarButton.dialogButton:hover
 	.embeddedServiceSidebarButton.dialogButton:focus {
@@ -92,110 +93,42 @@
 	.embeddedServiceSidebarButton:disabled .label {
 		color: #222222;
 	}
-	/* 
-	.cPreChatForm .startButtonDisabled {
-        background: #d7d7d9!important;
-        color: rgb(2, 241, 82)!important;
-    }
-    .cPreChatForm .fieldsList>div:nth-child(1), .cPreChatForm .fieldsList>div:nth-child(2){
-        display: inline-block !important;
-            width: 50% !important;
-        } 
-    .cPreChatForm .fieldsList input {
-            padding: 0px;
-        }
-    .uiButton--default:disabled .label {
-        color: rgb(206, 211, 207)
-    }
-    .uiButton--default:hover .label, .uiButton--default:focus .label {
-        color: #13ff03;
-    }
-    .uiButton--default .label {
-        /* white-space: normal; 
-         color: #13ff03; 
-    }
-    .cPreChatForm .startButton {
-        background: black;
-        color: #b2ff33;
+	.embeddedServiceLiveAgentStateChatPlaintextMessageDefaultUI.chasitor.plaintextContent {
+		background-color: #B2ff33;
+		color: rgb(0, 0, 0);
 	}
-	*/
+	.embeddedServiceLiveAgentStateChatInputFooter .footerMenuWrapper .footer-menu .slds-button:hover, 
+	.embeddedServiceLiveAgentStateChatInputFooter .footerMenuWrapper .footer-menu .slds-button:focus, 
+	.embeddedServiceLiveAgentStateChatInputFooter .footerMenuWrapper .footer-menu .slds-button:active {
+		color: #222222;
+	}
+
+	.embeddedServiceSidebarButton .label, 
+	.embeddedServiceSidebarButton:disabled .label {
+		color: #222222!important;
+	}
+
+	.forceCommunityEmbeddedServiceHelpButton .flatButton,
+	.flatButton .helpButtonLabel .message {
+		color: #222222;
+	}
+
+	.forceCommunityEmbeddedServiceHelpButton.helpButtonEnabled .help svg,
+	.forceCommunityEmbeddedServiceHelpButton .help svg {
+		fill: #222222;
+	}
+
+	.embeddedServiceLiveAgentStateChatInputFooter .footerMenuWrapper .footer-menu-items .slds-dropdown__item>a {
+		color: #222222!important;
+	}
+
+	.embeddedServiceLiveAgentStateChatInputFooter .footerMenuWrapper .footer-menu .slds-dropdown-trigger_click.slds-is-open .slds-button {
+		color: #222222!important;
+	}
 </style>
 
 <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
 <script type='text/javascript'>
-
-
-
-
-        // Logs that the snippet settings file was loaded successfully
-        console.log("Snippet settings file loaded.");   
-    
-        // set all fields entered in the pre-chat widown into custom fields on the chat transcript object
-        // fields without a value entered here - will get the value from the form itself
-        embedded_svc.settings.extraPrechatFormDetails = [
-            {
-                "label": "First Name",
-                "transcriptFields": ["Chat_User_First_Name__c"],
-                "displayToAgent":true
-            },
-            {
-                "label": "Last Name",
-                "transcriptFields": ["Chat_User_Last_Name__c"],
-                "displayToAgent":true
-            },
-            {
-                "label": "Email",
-                "transcriptFields": ["Chat_User_Email__c"],
-                "displayToAgent":true
-            },
-            {
-                "label": "Phone",
-                "transcriptFields": ["Chat_Phone__c"],
-                "displayToAgent":true
-            },
-            {
-                "label": "Country",
-                "transcriptFields": ["Chat_User_Country__c"],
-                "displayToAgent":true
-            }
-            
-        ]; 
-    
-        // disable creation of a contact and a case:
-        // this will be handled by the chat transcript trigger that will create a case that will create a contact
-        embedded_svc.settings.extraPrechatInfo = [{
-            "entityName":"Contact",
-            "entityFieldMaps": [{
-                "doCreate":false,
-                "doFind":false,
-                "fieldName":"FirstName",
-                "isExactMatch":false,
-                "label":"Last Name"
-            }, {
-                "doCreate":false,
-                "doFind":false,
-                "fieldName":"LastName",
-                "isExactMatch":false,
-                "label":"Last Name"
-            },
-            {
-                "doCreate":false,
-                "doFind":false,
-                "fieldName":"Email",
-                "isExactMatch":false,
-                "label":"Last Name"
-            },
-    
-            {
-                "doCreate":false,
-                "doFind":false,
-                "fieldName":"Phone",
-                "isExactMatch":false,
-                "label":"Email"
-            }]
-        }];
-    
-
 	var initESW = function(gslbBaseURL) {
 		embedded_svc.settings.displayHelpButton = true; //Or false
 		embedded_svc.settings.language = ''; //For example, enter 'en' or 'en-US'

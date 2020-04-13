@@ -57,4 +57,4 @@ For more information about using Node.js on Heroku, see these Dev Center article
 * Allow Acces to Pre-Chat API - 
 * Permitted Domains - To limit the domains that can host this deployment.
 * Enable Custome Timeouts - Customize the default idle connection timeout durations.
-* 
+* `https://shure--dev1.cs41.my.salesforce.com/572550000008OwB`
