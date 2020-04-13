@@ -1,0 +1,127 @@
+.embeddedServiceHelpButton .helpButton .uiButton {
+    background-color: #B2ff33;
+    font-family: "Arial", sans-serif;
+    color: #222222;
+}
+.embeddedServiceHelpButton .helpButton .uiButton:focus {
+    outline: 1px solid #B2ff33;
+}
+.embeddedServiceSidebarMinimizedDefaultUI.helpButton {
+    background-color: #B2ff33;
+    border-color: #B2ff33;
+}
+.embeddedServiceSidebarMinimizedDefaultUI.minimizedContainer:hover {
+    background-color: #B2ff33;
+    border-color: #B2ff33;
+}
+.embeddedServiceSidebarMinimizedDefaultUI.minimizedContainer:focus {
+    background-color: #B2ff33;
+    border-color: #222222;
+}
+.embeddedServiceSidebarMinimizedDefaultUI.minimizedContainer:focus {
+    text-decoration: none;
+}
+.embeddedServiceSidebarMinimizedDefaultUI .minimizedText {
+    color: #222222;
+}
+.embeddedServiceSidebarMinimizedDefaultUI .embeddedServiceIcon svg {
+    fill: #222222;
+}
+
+.cPreChatForm .fieldsList label {
+    font-size: 0.8em;
+}
+.cPreChatForm .fieldsList input, .cPreChatForm .fieldsList select {
+    height: calc(3rem + 2px);
+}
+
+.cPreChatForm .uiButton--default {
+    font-size: 1.2em;
+}
+
+.embeddedServiceSidebarButton.uiButton--inverse, 
+.embeddedServiceSidebarButton.uiButton--inverse:hover,
+.embeddedServiceSidebarButton.uiButton--inverse:focus, 
+.embeddedServiceSidebarButton.uiButton--inverse:not(:disabled):focus, 
+.embeddedServiceSidebarButton.uiButton--inverse:not(:disabled):hover,
+.embeddedServiceSidebarButton:not(:disabled):focus,
+.embeddedServiceSidebarButton:not(:disabled):hover {
+    background-color: #B2ff33;
+    text-decoration: none;
+    box-shadow: none;
+    border: 1px solid #222222;
+}
+
+
+.embeddedServiceSidebarButton.uiButton--inverse .label {
+    color: #222222;
+}
+
+.embeddedServiceSidebarButton.dialogButton, 
+.embeddedServiceSidebarButton.dialogButton:hover
+.embeddedServiceSidebarButton.dialogButton:focus {
+    background-color: #B2ff33;
+    color: #222222;
+    border: none;
+}
+.embeddedServiceSidebarButton .label, 
+.embeddedServiceSidebarButton:disabled .label {
+    color: #222222;
+}
+.embeddedServiceLiveAgentStateChatPlaintextMessageDefaultUI.chasitor.plaintextContent {
+    background-color: #B2ff33;
+    color: rgb(0, 0, 0);
+}
+.embeddedServiceLiveAgentStateChatInputFooter .footerMenuWrapper .footer-menu .slds-button:hover, 
+.embeddedServiceLiveAgentStateChatInputFooter .footerMenuWrapper .footer-menu .slds-button:focus, 
+.embeddedServiceLiveAgentStateChatInputFooter .footerMenuWrapper .footer-menu .slds-button:active {
+    color: #222222;
+}
+
+.embeddedServiceSidebarButton .label, 
+.embeddedServiceSidebarButton:disabled .label {
+    color: #222222!important;
+}
+
+.forceCommunityEmbeddedServiceHelpButton .flatButton,
+.flatButton .helpButtonLabel .message {
+    color: #222222;
+}
+
+.forceCommunityEmbeddedServiceHelpButton.helpButtonEnabled .help svg,
+.forceCommunityEmbeddedServiceHelpButton .help svg {
+    fill: #222222;
+}
+
+.embeddedServiceLiveAgentStateChatInputFooter .footerMenuWrapper .footer-menu-items .slds-dropdown__item>a {
+    color: #222222!important;
+}
+
+.embeddedServiceLiveAgentStateChatInputFooter .footerMenuWrapper .footer-menu .slds-dropdown-trigger_click.slds-is-open .slds-button {
+    color: #222222!important;
+}
+
+.embeddedServiceLiveAgentStateChatAvatar.isLightningOutContext .agentIconColor0 {
+    background-color: #B2ff33;
+    color: rgb(0, 0, 0);
+}
+
+.embeddedServiceLiveAgentStateChatItem .isLightningOutContext .avatar.iconAvatar {
+    color: rgb(0, 0, 0);
+    box-sizing: border-box;
+}
+
+.embeddedServiceLiveAgentStateChatAvatar.isLightningOutContext .agentIconColor1 {
+    background-color: #B2ff33;
+}
+
+.embeddedServiceLiveAgentStateChatAvatar .avatar {
+    padding: 6px;
+    color: rgb(0, 0, 0);
+    box-sizing: border-box;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-size: 100%;
+    text-align: center;
+}

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>My First Heading</h1>
+
+<p>My first paragraph.</p>
+
+
+
+
+<style type='text/css'>
+	.embeddedServiceHelpButton .helpButton .uiButton {
+		background-color: rgb(6, 245, 85);
+		font-family: "Arial", sans-serif;
+	}
+	.embeddedServiceHelpButton .helpButton .uiButton:focus {
+		outline: 1px solid rgb(4, 238, 43);
+    }
+    .cPreChatForm .startButtonDisabled {
+        background: #d7d7d9!important;
+        color: rgb(2, 241, 82)!important;
+    }
+    .cPreChatForm .fieldsList>div:nth-child(1), .cPreChatForm .fieldsList>div:nth-child(2){
+        display: inline-block !important;
+            width: 50% !important;
+        } 
+        .cPreChatForm .fieldsList input {
+            padding: 0px;
+        }
+    .uiButton--default:disabled .label {
+        color: rgb(206, 211, 207)
+    }
+    .uiButton--default:hover .label, .uiButton--default:focus .label {
+        color: #13ff03;
+    }
+    .uiButton--default .label {
+        /* white-space: normal; */
+         color: #13ff03; 
+    }
+    .cPreChatForm .startButton {
+        background: black;
+        color: #b2ff33;
+    }
+    
+</style>
+
+<script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
+<script type='text/javascript'>
+
+
+
+
+        // Logs that the snippet settings file was loaded successfully
+        console.log("Snippet settings file loaded.");   
+    
+        // set all fields entered in the pre-chat widown into custom fields on the chat transcript object
+        // fields without a value entered here - will get the value from the form itself
+        embedded_svc.settings.extraPrechatFormDetails = [
+            {
+                "label": "First Name",
+                "transcriptFields": ["Chat_User_First_Name__c"],
+                "displayToAgent":true
+            },
+            {
+                "label": "Last Name",
+                "transcriptFields": ["Chat_User_Last_Name__c"],
+                "displayToAgent":true
+            },
+            {
+                "label": "Email",
+                "transcriptFields": ["Chat_User_Email__c"],
+                "displayToAgent":true
+            },
+            {
+                "label": "Phone",
+                "transcriptFields": ["Chat_Phone__c"],
+                "displayToAgent":true
+            },
+            {
+                "label": "Country",
+                "transcriptFields": ["Chat_User_Country__c"],
+                "displayToAgent":true
+            }
+            
+        ]; 
+    
+        // disable creation of a contact and a case:
+        // this will be handled by the chat transcript trigger that will create a case that will create a contact
+        embedded_svc.settings.extraPrechatInfo = [{
+            "entityName":"Contact",
+            "entityFieldMaps": [{
+                "doCreate":false,
+                "doFind":false,
+                "fieldName":"FirstName",
+                "isExactMatch":false,
+                "label":"Last Name"
+            }, {
+                "doCreate":false,
+                "doFind":false,
+                "fieldName":"LastName",
+                "isExactMatch":false,
+                "label":"Last Name"
+            },
+            {
+                "doCreate":false,
+                "doFind":false,
+                "fieldName":"Email",
+                "isExactMatch":false,
+                "label":"Last Name"
+            },
+    
+            {
+                "doCreate":false,
+                "doFind":false,
+                "fieldName":"Phone",
+                "isExactMatch":false,
+                "label":"Email"
+            }]
+        }];
+    
+
+	var initESW = function(gslbBaseURL) {
+		embedded_svc.settings.displayHelpButton = true; //Or false
+		embedded_svc.settings.language = ''; //For example, enter 'en' or 'en-US'
+
+		//embedded_svc.settings.defaultMinimizedText = '...'; //(Defaults to Chat with an Expert)
+		//embedded_svc.settings.disabledMinimizedText = '...'; //(Defaults to Agent Offline)
+
+		//embedded_svc.settings.loadingText = ''; //(Defaults to Loading)
+		//embedded_svc.settings.storageDomain = 'yourdomain.com'; //(Sets the domain for your deployment so that visitors can navigate subdomains during a chat session)
+
+		// Settings for Chat
+		//embedded_svc.settings.directToButtonRouting = function(prechatFormData) {
+			// Dynamically changes the button ID based on what the visitor enters in the pre-chat form.
+			// Returns a valid button ID.
+		//};
+		//embedded_svc.settings.prepopulatedPrechatFields = {}; //Sets the auto-population of pre-chat form fields
+		//embedded_svc.settings.fallbackRouting = []; //An array of button IDs, user IDs, or userId_buttonId
+		//embedded_svc.settings.offlineSupportMinimizedText = '...'; //(Defaults to Contact Us)
+
+		embedded_svc.settings.enabledFeatures = ['LiveAgent'];
+		embedded_svc.settings.entryFeature = 'LiveAgent';
+
+		embedded_svc.init(
+			'https://shure--Dev1.cs41.my.salesforce.com',
+			'https://dev1-shure-community.cs41.force.com/CSPGateway',
+			gslbBaseURL,
+			'00D55000000D2n7',
+			'U_S_Chat_Support',
+			{
+				baseLiveAgentContentURL: 'https://c.la1-c1cs-ia2.salesforceliveagent.com/content',
+				deploymentId: '572550000008OwB',
+				buttonId: '573550000008P8W',
+				baseLiveAgentURL: 'https://d.la1-c1cs-ia2.salesforceliveagent.com/chat',
+				eswLiveAgentDevName: 'U_S_Chat_Support',
+				isOfflineSupportEnabled: false
+			}
+		);
+	};
+
+	if (!window.embedded_svc) {
+		var s = document.createElement('script');
+		s.setAttribute('src', 'https://shure--Dev1.cs41.my.salesforce.com/embeddedservice/5.0/esw.min.js');
+		s.onload = function() {
+			initESW(null);
+		};
+		document.body.appendChild(s);
+	} else {
+		initESW('https://service.force.com');
+	}
+</script>
+
+</body>
+</html>
