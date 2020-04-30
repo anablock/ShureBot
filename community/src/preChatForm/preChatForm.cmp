@@ -1,0 +1,50 @@
+<aura:component implements="lightningsnapin:prechatUI" description="Sample custom pre-chat component for Snap-ins. Implemented using Aura.">
+    <!-- You must implement "lightningsnapin:prechatUI" for this component to appear in the "Pre-chat Component" customization dropdown in the Snap-ins setup -->
+    
+    <!-- Pre-chat field DisclaimerValue -->
+    <aura:attribute name="DisclaimerValue" type="Boolean" default="false"/>
+    <aura:attribute name="disableValue" type="String" default="false"/>
+    <aura:attribute name="boolError" type="boolean" default="false"/>
+    <aura:attribute name="boolErrorEmail" type="boolean" default="false"/>
+    <!-- Pre-chat field components to render -->
+    <aura:attribute name="prechatFieldComponents" type="List" description="An array of objects representing the pre-chat fields specified in pre-chat setup."/>
+    
+    <!-- Handler for when this component is initialized -->
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}" />
+    
+    <!-- For Aura performance -->
+    <aura:locator target="startButton" description="Pre-chat form submit button."/>
+    
+    <!-- Contains methods for getting pre-chat fields, starting a chat, and validating fields -->
+    <lightningsnapin:prechatAPI aura:id="prechatAPI"/>
+    <div class="prechatUI">
+        <div class="prechatContent">
+            <div aura:id="feildset" class="fieldsList">
+                <!-- Look in the controller's onInit function. This component dynamically creates the pre-chat field components -->
+                {!v.prechatFieldComponents}
+            </div>
+        </div>
+        <aura:if isTrue="{!v.boolError}">
+            <div style="color: red;margin-bottom: 10px;font-size:1em;">
+               {!$Label.c.botFieldValidation}
+
+            </div>
+        </aura:if>
+        <aura:if isTrue="{!v.boolErrorEmail}">
+            <div style="color: red;margin-bottom: 10px;font-size:1em;">
+              {!$Label.c.botFieldValidationEmail}
+            </div>
+        </aura:if>
+       <!-- <div class="checkBoxWrapper">
+            <lightning:input type="checkbox" name="ProofDisclaimer" 
+             onchange="{!c.handlecheckbox}" aura:id="ProofDisclaimer" class="checkBox" Checked="true" />
+            <span> <a target="_blank" href="https://www.shure.com/en-US/meta/privacy" class="inputcheckbox">{!$Label.c.botPrivacy}</a></span>
+        </div>-->
+        <div class="FreeText">
+        <span> {!$Label.c.botPrivacyFirst}&nbsp;<a target="_blank" href="https://www.shure.com/en-US/meta/privacy" class="textcolor">{!$Label.c.botPrivacy}</a></span>
+        </div>
+        <div class="startButtonWrapper">
+            <ui:button aura:id="startButton" disabled="{!v.disableValue}"  class="startButton" label="{!$Label.LiveAgentPrechat.StartChat}" press="{!c.handleStartButtonClick}"/>
+        </div>
+    </div>
+</aura:component>
