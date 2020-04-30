@@ -1,0 +1,116 @@
+.THIS .fieldsList>div:nth-child(1), .THIS .fieldsList>div:nth-child(2){
+	display: inline-block !important;
+    width: 50% !important;
+}
+/*anablock*/
+.THIS .fieldsList {
+    padding: 20px;
+    padding-bottom: 0px;
+}
+.THIS .fieldsList>div:nth-child(1) input {
+    width: 90%;
+} 
+.THIS .fieldsList>div{
+    text-align: left;
+    margin-bottom: 10px;
+}
+.THIS .fieldsList label{
+    margin: 0px !important;
+    /*anablock*/
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
+    display: inline-block;
+    color: #3e3e3c;
+    font-size: .75rem;
+    font-weight: bold;
+    padding-right: .5rem;
+    padding-top: .25rem;
+    margin-bottom: .125rem;
+}
+
+/*anablock*/
+.THIS .fieldsList label > .required {
+    color: red;
+}
+.THIS .fieldsList input{
+    margin: 0px !important;
+    /*anablock*/
+    background-color: #fff;
+    border: 1px solid #dddbda;
+    border-radius: .25rem;
+    width: 100%;
+    transition: border .1s linear,background-color .1s linear;
+    display: inline-block;
+    padding: 0 1rem 0 .75rem;
+    line-height: 1.875rem;
+    min-height: calc(1.875rem + 2px);
+}
+
+/*anablock*/
+.THIS .fieldsList select {
+    background-color: #fff;
+    border: 1px solid #dddbda;
+    border-radius: .25rem;
+    width: 100%;
+    transition: border .1s linear,background-color .1s linear;
+    /*height: calc(1.875rem + 2px);*/
+    height: calc(2rem + 2.2px);
+    padding-bottom: 1px;
+    padding-top: 1px;
+}
+.THIS .checkBoxWrapper {
+    padding: 0 20px;
+    margin-bottom: 10px;
+}
+.THIS .textcolor{
+    color : black;
+}
+.THIS .inputcheckbox {
+    font-size : 11px;
+    word-break: break-word;
+    color: black;
+}
+.THIS button {
+    /*anablock*/
+    padding: .5em 1.2em;
+    font-weight: normal;
+    box-shadow: none;
+    text-decoration: none;
+    text-shadow: none;
+}
+.THIS .startButton, .THIS .startButton:hover {
+    background: black;
+}
+.THIS .startButton .label, .THIS .startButton:hover .label {
+    color: #B2ff33;
+}
+
+.THIS .FreeText {
+    font-size: 14px;
+    display: inline-block !important;
+    text-align: start;
+    padding-left: 26px;
+    padding-bottom: 11px;
+}
+.THIS .startButtonDisabled {
+    background: #d7d7d9 !important;
+    color: #8C8C8E !important;
+}
+.THIS .checkBox{
+    display: inline-block !important;
+}
+.THIS .checkBox .slds-checkbox .slds-checkbox_faux{
+    width: 0.7rem !important;
+    height: 0.7rem !important;
+    margin-right: 0 !important;
+}
+
+.THIS .checkBox .slds-checkbox .slds-checkbox_faux:after {
+    border-bottom: 2px solid rgb(13, 13, 13) !important;
+    border-left: 2px solid rgb(9, 9, 9) !important;
+}
+
+.THIS .checkBox .slds-checkbox__label{
+    margin-top: 0 !important;
+}
